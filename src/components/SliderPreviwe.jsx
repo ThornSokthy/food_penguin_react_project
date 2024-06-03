@@ -29,8 +29,7 @@ const SliderPreviwe = () => {
 
   setInterval(() => {
     sliderNumber < lenght ? nextSlide() : firstSlide();
-    changeColor();
-  }, 10000);
+  }, 5000);
 
   return (
     <div className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 flex flex-col items-center gap-2 mt-3">

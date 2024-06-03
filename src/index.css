@@ -11,4 +11,15 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .order-count {
+    font-size: 11px;
+    color: orange;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -11.5px;
+    right: 7px;
+  }
 }

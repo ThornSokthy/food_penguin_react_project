@@ -1,7 +1,12 @@
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import CardProduct from "./CardProduct";
+import { CartState } from "../context/ContextApi";
 
 const Header = () => {
+  const {
+    state: { cart },
+  } = CartState();
   return (
     <header className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 text-white z-20 flex justify-between items-center bg-slate-700 h-14 fixed left-0 right-0 top-0">
       <h2 className=" text-xl font-bold text-orange-400 flex items-center">
@@ -22,8 +27,9 @@ const Header = () => {
           <i class="bx bx-heart"></i>
         </button>
         <Link to="/cart">
-          <button className="text-2xl">
+          <button className="text-2xl relative">
             <i class="bx bx-cart"></i>
+            <span className="order-count">{cart.length}</span>
           </button>
         </Link>
       </div>

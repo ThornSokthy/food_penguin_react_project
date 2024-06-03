@@ -1,6 +1,13 @@
-import React from "react";
+import { CartState } from "../context/ContextApi";
 
 const CardProduct = ({ product }) => {
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
+
+  console.log(cart);
+
   return (
     <div className=" bg-slate-200 py-5 px-4 rounded-md flex flex-col">
       <div className=" relative">
@@ -13,7 +20,12 @@ const CardProduct = ({ product }) => {
         <p className="font-semibold">
           ${(Math.round(product.price) / 100).toFixed(2).replace(".", ",")}
         </p>
-        <button className=" bg-black text-xl text-white px-5 pb-1 rounded-lg">
+        <button
+          onClick={() => {
+            dispatch({ type: "ADD_TO_CART", payload: product });
+          }}
+          className=" bg-black text-xl text-white px-5 pb-1 rounded-lg"
+        >
           +
         </button>
       </div>
