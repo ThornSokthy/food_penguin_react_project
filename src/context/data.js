@@ -11,7 +11,7 @@ import product10 from "../assets/product_imgs/product-img-10.jpg";
 import product11 from "../assets/product_imgs/product-img-11.jpg";
 import product12 from "../assets/product_imgs/product-img-12.jpg";
 
-const Data = [
+export const Data = [
   {
     id: 1,
     name: "Orange juice",
