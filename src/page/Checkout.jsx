@@ -1,11 +1,25 @@
-import product from "../assets/product_imgs/product-img-1.jpg";
+import { useEffect, useState } from "react";
+import Cart from "../components/Cart";
 import { CartState } from "../context/ContextApi";
 
 const Checkout = () => {
+  const [total, setTotal] = useState(0);
+  const [shipping, setShipping] = useState(0);
+  const [amount, setAmount] = useState(0);
+
   const {
     state: { cart },
     dispatch,
   } = CartState();
+
+  useEffect(() => {
+    setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
+    setShipping(cart.length > 0 ? 50 : 0);
+  }, [cart]);
+
+  useEffect(() => {
+    setAmount(total + shipping);
+  });
 
   return (
     <main className=" flex-1 px-14 sm:px-20 md:px-24 lg:px-40 xl:px-60 mt-6">
@@ -15,27 +29,13 @@ const Checkout = () => {
             Shopping Cart.
           </h1>
           <div className="">
-            <div className="grid grid-cols-[60px_auto_50px_auto] items-center">
-              <img src={product} className="w-16" />
-              <div>
-                <h2 className="text-sm md:text-base font-semibold">
-                  Orange juice
-                </h2>
-                <span className="text-sm">$3.14</span>
-              </div>
-              <div className="flex gap-4">
-                <button className="text-xl">
-                  <i class="bx bx-minus"></i>
-                </button>
-                <span className="font-bold">2</span>
-                <button className="text-xl">
-                  <i class="bx bx-plus"></i>
-                </button>
-              </div>
-              <button className="ml-4 text-2xl">
-                <i class="bx bx-x"></i>
-              </button>
-            </div>
+            {cart.length > 0 ? (
+              cart.map((cart) => {
+                return <Cart cart={cart} dispatch={dispatch} />;
+              })
+            ) : (
+              <p>Cart empty..!</p>
+            )}
           </div>
         </div>
         <div>
@@ -44,16 +44,22 @@ const Checkout = () => {
           </h1>
           <div className="border px-4 py-5 rounded-lg">
             <div className="flex justify-between mb-2 text-base md:text-sm lg:text-base">
-              <h2>Items(3): </h2>
-              <span>$32.75</span>
+              <h2>Items({cart.length}): </h2>
+              <span>
+                ${(Math.round(total) / 100).toFixed(2).replace(".", ",")}
+              </span>
             </div>
             <div className="flex justify-between mb-2 text-base md:text-sm lg:text-base">
               <h2>Shipping: </h2>
-              <span>$2.75</span>
+              <span>
+                ${(Math.round(shipping) / 100).toFixed(2).replace(".", ",")}
+              </span>
             </div>
-            <div className="flex justify-between mb-4 text-base md:text-sm lg:text-base text-red-600 font-semibold">
+            <div className="flex justify-between mb-4 text-base md:text-sm lg:text-base text-red-600 font-semibold border-b-2 pb-3">
               <h2>Order total: </h2>
-              <span>$34.75</span>
+              <span>
+                ${(Math.round(amount) / 100).toFixed(2).replace(".", ",")}
+              </span>
             </div>
             <div>
               <button className="py-1 px-4 bg-blue-500 text-white rounded-lg mr-2">

@@ -22,7 +22,7 @@ const CardProduct = ({ product }) => {
           onClick={() => {
             dispatch({ type: "ADD_TO_CART", payload: product });
           }}
-          className=" bg-black text-xl text-white px-5 pb-1 rounded-lg"
+          className=" bg-black text-xl text-white px-5 pb-1 rounded-lg pt-1"
         >
           +
         </button>

@@ -15,7 +15,7 @@ export const Data = [
   {
     id: 1,
     name: "Orange juice",
-    price: 560,
+    price: 250,
     cat: "tea",
     image: product1,
   },
