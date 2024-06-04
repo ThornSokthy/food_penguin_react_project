@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import product1 from "../assets/product_imgs/product-img-1.jpg";
 import product2 from "../assets/product_imgs/product-img-2.jpg";
 import product3 from "../assets/product_imgs/product-img-3.jpg";
@@ -103,10 +103,16 @@ const ContextApi = ({ children }) => {
     },
   ];
 
-  const [state, dispatch] = useReducer(cartReducer, {
+  const initialState = {
     products: Data,
-    cart: [],
-  });
+    cart: JSON.parse(localStorage.getItem("item")),
+  };
+
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem("item", JSON.stringify(state.cart));
+  }, [state]);
 
   return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
 };
