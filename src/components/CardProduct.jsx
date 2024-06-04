@@ -6,8 +6,6 @@ const CardProduct = ({ product }) => {
     dispatch,
   } = CartState();
 
-  console.log(cart);
-
   return (
     <div className=" bg-slate-200 py-5 px-4 rounded-md flex flex-col">
       <div className=" relative">

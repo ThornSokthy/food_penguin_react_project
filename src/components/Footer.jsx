@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="w-full bg-slate-600 text-white py-10 flex flex-col items-center">
+    <footer className="flex flex-col items-center bg-slate-700 text-white py-9">
       <h1 className=" text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4">
         Food Penguin
       </h1>
