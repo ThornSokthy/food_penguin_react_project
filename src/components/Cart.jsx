@@ -1,4 +1,4 @@
-const Cart = ({ cart, dispatch }) => {
+const Cart = ({ cart, removeFromCart }) => {
   return (
     <div className="grid grid-cols-[60px_auto_50px_auto] mb-4 items-center">
       <img src={cart.image} className="w-16" />
@@ -18,11 +18,8 @@ const Cart = ({ cart, dispatch }) => {
         </button>
       </div>
       <button
-        onClick={(e) => {
-          dispatch({
-            type: "REMOVE_FROM_CART",
-            payload: cart.id,
-          });
+        onClick={() => {
+          removeFromCart(cart);
         }}
         className="ml-24 text-2xl w-5"
       >

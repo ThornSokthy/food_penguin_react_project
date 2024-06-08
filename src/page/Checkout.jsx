@@ -9,7 +9,7 @@ const Checkout = () => {
 
   const {
     state: { cart },
-    dispatch,
+    removeFromCart,
   } = CartState();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Checkout = () => {
           <div className="">
             {cart.length > 0 ? (
               cart.map((cart) => {
-                return <Cart cart={cart} dispatch={dispatch} />;
+                return <Cart cart={cart} removeFromCart={removeFromCart} />;
               })
             ) : (
               <p>Cart empty..!</p>

@@ -105,16 +105,28 @@ const ContextApi = ({ children }) => {
 
   const initialState = {
     products: Data,
-    cart: JSON.parse(localStorage.getItem("item")),
+    cart: JSON.parse(localStorage.getItem("cart")) || [],
+  };
+
+  const addToCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
+
+  const removeFromCart = (item) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item });
   };
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   useEffect(() => {
-    localStorage.setItem("item", JSON.stringify(state.cart));
-  }, [state]);
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
-  return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
+  return (
+    <Cart.Provider value={{ state, dispatch, addToCart, removeFromCart }}>
+      {children}
+    </Cart.Provider>
+  );
 };
 
 export default ContextApi;

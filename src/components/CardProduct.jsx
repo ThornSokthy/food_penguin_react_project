@@ -1,11 +1,6 @@
 import { CartState } from "../context/ContextApi";
 
-const CardProduct = ({ product }) => {
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
-
+const CardProduct = ({ product, addToCart }) => {
   return (
     <div className=" bg-slate-200 py-5 px-4 rounded-md flex flex-col">
       <div className=" relative">
@@ -20,7 +15,7 @@ const CardProduct = ({ product }) => {
         </p>
         <button
           onClick={() => {
-            dispatch({ type: "ADD_TO_CART", payload: product });
+            addToCart(product);
           }}
           className=" bg-black text-xl text-white px-5 pb-1 rounded-lg pt-1"
         >

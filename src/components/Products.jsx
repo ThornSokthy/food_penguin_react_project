@@ -4,6 +4,7 @@ import CardProduct from "./CardProduct";
 const Products = () => {
   const {
     state: { products },
+    addToCart,
   } = CartState();
 
   return (
@@ -11,7 +12,9 @@ const Products = () => {
       <h2 className=" mb-5 text-xl font-semibold">Poppular Products</h2>
       <section className="mb-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {products.map((pro) => {
-          return <CardProduct product={pro} />;
+          return (
+            <CardProduct key={pro.id} product={pro} addToCart={addToCart} />
+          );
         })}
       </section>
     </main>
