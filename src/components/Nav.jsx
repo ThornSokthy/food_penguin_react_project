@@ -25,8 +25,9 @@ const Nav = () => {
   return (
     <nav className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 py-[8px] border-b-2">
       <ul id="cats" className="flex gap-6 overflow-x-auto no-scrollbar flex-1">
-        {allCates.map((cat) => (
+        {allCates.map((cat, index) => (
           <li
+            key={index}
             onClick={(e) => {
               setSelectedCat(e.target.textContent);
             }}

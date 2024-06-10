@@ -1,6 +1,7 @@
 import useWindowSize from "../hooks/useWindowSize";
 import slide_one from "../assets/product_preview/product-preview-2.jpg";
 import slide_two from "../assets/product_preview/product-preview-3.jpg";
+import { useEffect } from "react";
 
 const SliderPreviwe = () => {
   const Slider = document.querySelector("#slider");
@@ -11,11 +12,16 @@ const SliderPreviwe = () => {
   let lenght = Images.length;
   let widthFrame = 350;
 
-  if (width > 768) {
-    widthFrame = 800;
-  } else if (width < 768) {
-    widthFrame = 550;
-  }
+  useEffect(() => {
+    if (width > 640) {
+      widthFrame = 550;
+    }
+    if (width > 768) {
+      widthFrame = 800;
+    }
+    console.log(width);
+    console.log(widthFrame);
+  }, [width]);
 
   function nextSlide() {
     Slider.style.transform = `translateX(-${sliderNumber * widthFrame}px)`;
@@ -41,7 +47,7 @@ const SliderPreviwe = () => {
 
   setInterval(() => {
     sliderNumber < lenght ? nextSlide() : firstSlide();
-  }, 5000);
+  }, 10000);
 
   return (
     <div className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 flex flex-col items-center gap-2 mt-3">
@@ -50,7 +56,6 @@ const SliderPreviwe = () => {
           <button
             onClick={() => {
               sliderNumber > 1 ? prevSlide() : lastSlide();
-              changeColor();
             }}
             className="py-[0.5em] px-3 bg-gray-200 rounded-full cursor-pointer font-bold z-10 absolute top-[50%] -translate-y-[50%]"
           >
@@ -66,7 +71,6 @@ const SliderPreviwe = () => {
           <button
             onClick={() => {
               sliderNumber < lenght ? nextSlide() : firstSlide();
-              changeColor();
             }}
             className="py-[0.5em] px-3 bg-gray-200 rounded-full cursor-pointer font-bold z-10 absolute top-[50%] -translate-y-[50%] right-0"
           >

@@ -17,7 +17,7 @@ const CardProduct = ({ product, addToCart }) => {
           onClick={() => {
             addToCart(product);
           }}
-          className=" bg-black text-xl text-white px-5 pb-1 rounded-lg pt-1"
+          className=" hover:bg-slate-800 active:bg-slate-700 bg-black text-xl text-white px-5 pb-1 rounded-lg pt-1"
         >
           +
         </button>
