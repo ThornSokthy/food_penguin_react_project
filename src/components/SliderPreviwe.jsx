@@ -37,9 +37,9 @@ const SliderPreviwe = () => {
     sliderNumber = lenght;
   }
 
-  // setInterval(() => {
-  //   sliderNumber < lenght ? nextSlide() : firstSlide();
-  // }, 5000);
+  setInterval(() => {
+    sliderNumber < lenght ? nextSlide() : firstSlide();
+  }, 5000);
 
   return (
     <div className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 flex flex-col items-center gap-2 mt-3">
@@ -52,14 +52,14 @@ const SliderPreviwe = () => {
             }}
             className="py-[0.5em] px-3 bg-gray-200 rounded-full cursor-pointer font-bold z-10 absolute top-[50%] -translate-y-[50%]"
           >
-            <i class="bx bx-chevron-left text-2xl"></i>
+            <i className="bx bx-chevron-left text-2xl"></i>
           </button>
           <div id="slider" className="flex transition-all duration-1000 ">
             <img src={slide_one} className="image w-full aspect-auto" />
             <img src={slide_two} className="image w-full aspect-auto" />
             <img src={slide_one} className="image w-full aspect-auto" />
             <img src={slide_two} className="image w-full  aspect-auto" />
-            <img src={slide_one} class="image w-full aspect-video" />
+            <img src={slide_one} className="image w-full aspect-video" />
           </div>
           <button
             onClick={() => {
@@ -68,7 +68,7 @@ const SliderPreviwe = () => {
             }}
             className="py-[0.5em] px-3 bg-gray-200 rounded-full cursor-pointer font-bold z-10 absolute top-[50%] -translate-y-[50%] right-0"
           >
-            <i class="bx bx-chevron-right text-2xl"></i>
+            <i className="bx bx-chevron-right text-2xl"></i>
           </button>
         </div>
       </div>

@@ -8,22 +8,14 @@ const Cart = ({ cart, removeFromCart }) => {
           ${(Math.round(cart.price) / 100).toFixed(2).replace(".", ",")}
         </span>
       </div>
-      <div className="flex gap-4">
-        <button className="text-xl">
-          <i class="bx bx-minus"></i>
-        </button>
-        <span className="font-bold">{cart.qty}</span>
-        <button className="text-xl">
-          <i class="bx bx-plus"></i>
-        </button>
-      </div>
+      <span className=" text-[18px] font-semibold">{cart.qty}</span>
       <button
         onClick={() => {
           removeFromCart(cart);
         }}
         className="ml-24 text-2xl w-5"
       >
-        <i class="bx bx-x"></i>
+        <i className="bx bx-x"></i>
       </button>
     </div>
   );

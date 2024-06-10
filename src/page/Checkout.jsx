@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Cart from "../components/Cart";
 import { CartState } from "../context/ContextApi";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const [total, setTotal] = useState(0);
@@ -31,7 +32,13 @@ const Checkout = () => {
           <div className="">
             {cart.length > 0 ? (
               cart.map((cart) => {
-                return <Cart cart={cart} removeFromCart={removeFromCart} />;
+                return (
+                  <Cart
+                    key={cart.id + 1}
+                    cart={cart}
+                    removeFromCart={removeFromCart}
+                  />
+                );
               })
             ) : (
               <p>Cart empty..!</p>
@@ -75,6 +82,11 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      <Link to="/">
+        <div className="my-8 font-semibold flex items-center">
+          <i class="bx bx-left-arrow-alt text-xl"></i> back to shipping
+        </div>
+      </Link>
     </main>
   );
 };
