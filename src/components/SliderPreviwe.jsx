@@ -9,10 +9,12 @@ const SliderPreviwe = () => {
 
   let sliderNumber = 1;
   let lenght = Images.length;
-  let widthFrame = 500;
+  let widthFrame = 350;
 
   if (width > 768) {
     widthFrame = 800;
+  } else if (width < 768) {
+    widthFrame = 550;
   }
 
   function nextSlide() {
@@ -44,7 +46,7 @@ const SliderPreviwe = () => {
   return (
     <div className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 flex flex-col items-center gap-2 mt-3">
       <div className="flex items-center gap-x-4">
-        <div className="relative w-[500px] md:w-[800px]  overflow-hidden aspect-video">
+        <div className="relative w-[350px] sm:w-[550px] md:w-[800px]  overflow-hidden aspect-video">
           <button
             onClick={() => {
               sliderNumber > 1 ? prevSlide() : lastSlide();
