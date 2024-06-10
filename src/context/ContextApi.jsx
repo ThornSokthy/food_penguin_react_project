@@ -225,7 +225,7 @@ const ContextApi = ({ children }) => {
     },
     {
       id: 27,
-      name: "Hot Amaricano",
+      name: "Hot Late",
       price: 560,
       cat: "Coffee",
       image: product27,
