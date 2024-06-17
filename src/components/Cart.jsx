@@ -1,6 +1,6 @@
 const Cart = ({ cart, removeFromCart }) => {
   return (
-    <div className="grid grid-cols-[60px_auto_50px_auto] mb-4 items-center">
+    <div className="grid grid-cols-[60px_1fr_50px_1fr] mb-4 items-center">
       <img src={cart.image} className="w-16" />
       <div>
         <h2 className="text-sm md:text-base font-semibold">{cart.name}</h2>

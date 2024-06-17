@@ -19,8 +19,6 @@ const SliderPreviwe = () => {
     if (width > 768) {
       widthFrame = 800;
     }
-    console.log(width);
-    console.log(widthFrame);
   }, [width]);
 
   function nextSlide() {
@@ -45,9 +43,9 @@ const SliderPreviwe = () => {
     sliderNumber = lenght;
   }
 
-  setInterval(() => {
-    sliderNumber < lenght ? nextSlide() : firstSlide();
-  }, 10000);
+  // setInterval(() => {
+  //   sliderNumber < lenght ? nextSlide() : firstSlide();
+  // }, 10000);
 
   return (
     <div className="px-4 sm:px-10 md:px-20 lg:px-52 xl:px-60 flex flex-col items-center gap-2 mt-3">

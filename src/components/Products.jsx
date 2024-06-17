@@ -7,7 +7,6 @@ const Products = () => {
     addToCart,
     search,
     seletedCat,
-    setSelectedCat,
   } = CartState();
 
   const filteredProducts = products.filter((pro) => {
